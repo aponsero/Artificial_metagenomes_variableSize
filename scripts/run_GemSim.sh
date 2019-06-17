@@ -20,13 +20,13 @@ echo "Started `date`">>"$LOG"
 echo "Host `hostname`">>"$LOG"
 
 
-cd /rsgrps/bhurwitz/alise/tools/GemSIM_v1.6
+cd $GEMSIM
 
 CURR_PROFILE=`head -n +${PBS_ARRAY_INDEX} $SPLIT_LIST | tail -n 1`
 CFILE=${CURR_PROFILE:2}
 FILE="$REL_OUT/profiles/$CFILE"
 OUT="$REL_OUT/$CFILE"
-echo "./GemReads.py -R $GENOMES_DIR -a $FILE -n $NB_READS -l d -u d -m $MODEL -q 64 -o $REL_OUT -p"
+echo "./GemReads.py -R $GENOMES_DIR -a $FILE -n $NB_READS -l d -u d -m $MODEL -q 64 -o $OUT -p"
 
 ./GemReads.py -R $GENOMES_DIR -a $FILE -n $NB_READS -l d -u d -m $MODEL -q 64 -o $OUT -p
 
