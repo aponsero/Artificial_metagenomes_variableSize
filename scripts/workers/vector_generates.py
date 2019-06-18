@@ -6,6 +6,7 @@ import sys, getopt
 import argparse
 import numpy as np
 from sklearn import preprocessing
+import math
 
 def get_args():
   parser = argparse.ArgumentParser(description='generates vectors for community simulation')
@@ -19,6 +20,8 @@ def get_args():
     type=int, metavar='MINI', required=True)
   parser.add_argument('-ma', '--maxi', help='maximum nb of org',
     type=int, metavar='MAXI', required=True)
+  parser.add_argument('-q', '--queue', help='queued distribution?',
+    type=bool, metavar='QUEUE', required=True)
   return parser.parse_args()
 
 def get_meta(vec):
@@ -43,7 +46,7 @@ def main():
     nb_meta= args.meta
     mymin= args.mini
     mymax= args.maxi
-
+    queue= args.queue
     my_vec = list()
     my_names = list()
     np.set_printoptions(precision=5,suppress=True)
@@ -65,9 +68,23 @@ def main():
     for i in range(nb_meta):
         cpt=0
         mynb=int(random.randint(mymin,upper))
-        init=1/mynb
-        vec=np.full(mynb, init, dtype=float)
-        new_vec = get_meta(vec)
+        print("this is my number")
+        print(str(mynb))
+        if queue :
+           print("this is the major population :")
+           major=int(math.ceil(mynb/5.0))
+           print(str(major))
+           major_init=0.6/major
+           major_vec=np.full(major, major_init, dtype=float)
+           minor=mynb-major
+           minor_init=0.4/minor
+           minor_vec=np.full(minor, minor_init, dtype=float)
+           vec=np.concatenate([major_vec,minor_vec])
+           new_vec = get_meta(vec)
+        else :
+            init=1/mynb
+            vec=np.full(mynb, init, dtype=float)
+            new_vec = get_meta(vec)
 
 #print profile file out
         np.random.shuffle(names)

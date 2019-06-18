@@ -16,7 +16,7 @@ if [[ "$MINI" -gt "$MAXI" ]]; then
     exit 1
 fi
 
-NUM_CHECK=cat $ | wc -l 
+export NUM_CHECK=$(< "$LIST_GENOMES" wc -l) 
 #check nb of lines in the document and compare to MINI
 if [[ "$MINI" -gt "$NUM_CHECK" ]]; then
     echo "provide a MINI argument inferior to the number of genomes in the list"
@@ -49,7 +49,7 @@ init_dir "$STDERR_DIR" "$STDOUT_DIR"
 echo "launching $SCRIPT_DIR/run_abundance_vectors.sh "
 
 
-JOB_ID=`qsub $ARGS -v WORKER_DIR,LIST_GENOMES,MINI,MAXI,NB_METAGENOMES,RESULT_DIR,STDERR_DIR,STDOUT_DIR -N run_vectors -e "$STDERR_DIR" -o "$STDOUT_DIR"  $SCRIPT_DIR/run_abundance_vectors.sh`
+JOB_ID=`qsub $ARGS -v WORKER_DIR,QUEUE,LIST_GENOMES,MINI,MAXI,NB_METAGENOMES,RESULT_DIR,STDERR_DIR,STDOUT_DIR -N run_vectors -e "$STDERR_DIR" -o "$STDOUT_DIR"  $SCRIPT_DIR/run_abundance_vectors.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
     echo Job: \"$JOB_ID\"
