@@ -1,7 +1,9 @@
 # Artificial_metagenomes_variableSize
 Pipeline for the generation of artificial metagenomes containing a variable number of organisms. Parrallelized for HPC.
 
-The complete pipeline will generate K artificial metagenomes of a given sequencing depth (Nb of reads). The number of organisms in each metagenome is randomly chosen between a min and a max (defined by the user). The abundance of each organisms in the metagenome is obtained by dividing the total number of reads by the number of organisms, the addition of a gaussian noise and a normalization.
+The complete pipeline will generate K artificial metagenomes of a given sequencing depth (Nb of reads). The number of organisms in each metagenome is randomly chosen between a min and a max (defined by the user). 
+IF SQUEUE is set to TRUE : the abundance distribution will be squeued. 1/5 of the organisms will represent around 60% of the total population.
+If SQUEUE is set to FALSE : The abundance of each organisms in the metagenome is obtained by dividing the total number of reads by the number of organisms, the addition of a gaussian noise and a normalization.
 
 ## Requirements
 
@@ -23,12 +25,14 @@ please modify the following attributes
   - LIST_GENOMES : list of genomes that will constitute the artificial metagenomes
   - GENOMES_DIR : path to the directory where the genomes are stored, Beware GemSim won't work if this is not relative to $GEMSIM
   - RESULT_DIR : path to the output directory
+  - REL_OUT : relative path to the output dir for GEMSIM
 # parameters
   - NB_READS : nb reads to generate
   - NB_METAGENOMES : nb metagenomes to generate
   - MODEL : error/length model to use
   - MINI : nb minimum of organisms in the metagenomes
   - MAXI : nb maximum of organisms in the metagenomes
+  - SQUEUE : If set to TRUE, the abundance distribution will be squeued. 1/5 of the organisms will represent around 60% of the total population. If set to FALSE, the abundance distribution of the organisms will be almost homogeneous. 
 
   - OUTNAME  : indicate here the name to use for the output files
   - MAIL_USER : indicate here your arizona.edu email
