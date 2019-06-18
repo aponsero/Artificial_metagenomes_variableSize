@@ -5,6 +5,7 @@ export GEMSIM=""
 export LIST_GENOMES=""
 export GENOMES_DIR="" #GemSim won't work if this is not relative to $GEMSIM
 export RESULT_DIR=""
+export REL_OUT="" #GemSim won't work if this is not relative to $GEMSIM
 # parameters
 export NB_READS="50000000" #nb reads to generate
 export NB_METAGENOMES=2 #nb metagenomes to generate
