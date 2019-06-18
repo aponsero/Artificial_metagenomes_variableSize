@@ -68,8 +68,12 @@ def main():
     for i in range(nb_meta):
         cpt=0
         mynb=int(random.randint(mymin,upper))
+        print("this is my number")
+        print(str(mynb))
         if queue == "TRUE" :
-           major=int(math.ceil(mynb/5.0)) 
+           print("this is the major population :")
+           major=int(math.ceil(mynb/5.0))
+           print(str(major))
            major_init=0.6/major
            major_vec=np.full(major, major_init, dtype=float)
            minor=mynb-major
