@@ -29,7 +29,7 @@ if [ ! -d "$OUT" ] ; then
     mkdir $OUT
 fi
 
-python $RUN -f $LIST_GENOMES -m $NB_METAGENOMES -o $OUT -mi $MINI -ma $MAXI -q $QUEUE
+python $RUN -f $LIST_GENOMES -m $NB_METAGENOMES -o $OUT -mi $MINI -ma $MAXI -q $SQUEUE
 
 cd $OUT
 find . -type f -name "*.txt" > files.list

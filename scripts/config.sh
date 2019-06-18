@@ -12,7 +12,7 @@ export NB_METAGENOMES=2 #nb metagenomes to generate
 export MODEL="models/ill100v4_p.gzip" #error/legth model to use
 export MINI=5 #nb minimum of organisms in the metagenomes
 export MAXI=50 #nb maximum of organisms in the metagenomes
-export QUEUE="TRUE" 
+export SQUEUE="TRUE" 
 #TRUE if the distribution is squeued (1/5 of the organisms represent around 60% of the total abundance). If False, the relative abundance distribution of the organisms will be almost homogeneous.
 
 #place to store the scripts
