@@ -21,7 +21,7 @@ def get_args():
   parser.add_argument('-ma', '--maxi', help='maximum nb of org',
     type=int, metavar='MAXI', required=True)
   parser.add_argument('-q', '--queue', help='queued distribution?',
-    type=bool, metavar='QUEUE', required=True)
+    type=str, metavar='QUEUE', required=True)
   return parser.parse_args()
 
 def get_meta(vec):
@@ -68,12 +68,8 @@ def main():
     for i in range(nb_meta):
         cpt=0
         mynb=int(random.randint(mymin,upper))
-        print("this is my number")
-        print(str(mynb))
-        if queue :
-           print("this is the major population :")
-           major=int(math.ceil(mynb/5.0))
-           print(str(major))
+        if queue == "TRUE" :
+           major=int(math.ceil(mynb/5.0)) 
            major_init=0.6/major
            major_vec=np.full(major, major_init, dtype=float)
            minor=mynb-major
