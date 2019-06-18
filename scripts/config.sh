@@ -2,16 +2,9 @@ export CWD=$PWD
 # where programs are
 export GEMSIM=""
 # where the dataset to prepare is
-<<<<<<< HEAD
-export LIST_GENOMES="/rsgrps/bhurwitz/alise/my_data/De_Novo_meta/Simulated_datasets/SimSetM_genomes.txt"
-export GENOMES_DIR="../../my_data/De_Novo_meta/Simulated_datasets/orginal_genomes" #GemSim won't work if this is not relative to $GEMSIM
-export RESULT_DIR="/rsgrps/bhurwitz/alise/my_data/De_Novo_meta/Simulated_datasets/SimSetM2_2"
-export REL_OUT="../../my_data/De_Novo_meta/Simulated_datasets/SimSetM2_2" #output dir relative to $GEMSIM
-=======
 export LIST_GENOMES=""
 export GENOMES_DIR="" #GemSim won't work if this is not relative to $GEMSIM
 export RESULT_DIR=""
->>>>>>> 933ec2ca6e2f52e901e9f5982a9e116a448c1aa4
 # parameters
 export NB_READS="50000000" #nb reads to generate
 export NB_METAGENOMES=2 #nb metagenomes to generate
